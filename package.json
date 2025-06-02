@@ -1,0 +1,23 @@
+{
+  "name": "vaults-fyi-example",
+  "version": "1.0.0",
+  "description": "An example implementation for the vaults.fyi API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "wallet-integration": "node examples/wallet_integration.js"
+  },
+  "dependencies": {
+    "@vaultsfyi/sdk": "^1.0.3",
+    "cli-table3": "^0.6.3",
+    "ethers": "^6.9.0"
+  },
+  "keywords": [
+    "vaults.fyi",
+    "defi",
+    "yield",
+    "ethereum"
+  ],
+  "author": "",
+  "license": "MIT"
+}
