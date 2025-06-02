@@ -1,6 +1,7 @@
 # Vaults.fyi SDK Example Implementation
 
 This example demonstrates how to use the vaults.fyi SDK (`@vaultsfyi/sdk`) to:
+
 1. Find the best deposit options for a specific address
 2. Generate transaction payloads for depositing into vaults
 3. View user positions and balances
@@ -34,8 +35,7 @@ const { VaultsSdk } = pkg;
 
 // Initialize the SDK
 const vaultsFyi = new VaultsSdk({
-  apiKey: process.env.VAULTS_FYI_API_KEY,
-  network: 'ethereum'
+  apiKey: process.env.VAULTS_FYI_API_KEY
 });
 ```
 
