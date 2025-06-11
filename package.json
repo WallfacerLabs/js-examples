@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "wallet-integration": "node examples/wallet_integration.js"
+    "wallet-integration": "node examples/wallet_integration.js",
+    "comprehensive-test": "node examples/comprehensive_api_test.js"
   },
   "dependencies": {
     "@vaultsfyi/sdk": "^1.0.3",
