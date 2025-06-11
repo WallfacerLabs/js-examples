@@ -221,43 +221,22 @@ async function runExampleImplementation() {
   console.log('\n📈 1. Finding best deposit options...');
   const topOptions = await getBestDepositOptions();
   
-  // 2. Generate a deposit transaction (if we have deposit options)
-  if (topOptions?.userBalances?.[0]?.depositOptions?.[2]) {
-    const firstAsset = topOptions.userBalances[0];
-    const firstDepositOption = firstAsset.depositOptions[2]; // Use 3rd vault (index 2)
-    const vaultName = firstDepositOption.name || 'Unknown vault';
-    console.log(`\n💳 2. Generating deposit transaction into ${vaultName}...`);
-    
-    // Extract vault address and asset address from the deposit option
-    const vaultAddress = firstDepositOption.address;
-    const assetAddress = firstAsset.asset?.address;
-    
-    // Extract network string from the deposit option
-    let network = 'mainnet'; // Use 'mainnet' to match API expectations
-    if (firstDepositOption.network) {
-      network = typeof firstDepositOption.network === 'string' 
-        ? firstDepositOption.network 
-        : firstDepositOption.network.name || 'mainnet';
-    }
-    
-    if (vaultAddress && assetAddress) {
-      const amount = '1000000'; // 1 USDC (6 decimals)
-      
-      await generateDepositTransactionWithAsset(
-        vaultAddress,
-        amount,
-        address,
-        network,
-        assetAddress
-      );
-    } else {
-      console.log('❌ Could not find vault address or asset address in deposit option');
-      console.log('Vault address:', vaultAddress);
-      console.log('Asset address:', assetAddress);
-    }
-  } else {
-    console.log('❌ No deposit options available');
-  }
+  // 2. Generate a deposit transaction for Sky Savings USDS on Base
+  console.log(`\n💳 2. Generating deposit transaction into Sky Savings USDS on Base...`);
+  
+  // Hardcoded Sky Savings USDS vault details
+  const skyVaultAddress = '0x1601843c5E9bC251A3272907010AFa41Fa18347E';
+  const usdsAssetAddress = '0x820c137fa70c8691f0e44dc420a5e53c168921dc'; // USDS token address on Base
+  const network = 'base';
+  const amount = '1000000000000000000'; // 1 USDS (18 decimals)
+  
+  await generateDepositTransactionWithAsset(
+    skyVaultAddress,
+    amount,
+    address,
+    network,
+    usdsAssetAddress
+  );
   
   // 3. View user positions
   console.log('\n💼 3. Checking user positions...');
